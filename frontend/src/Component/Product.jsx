@@ -1,5 +1,6 @@
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import Rating from './Rating'
 
 const Product = ({ product }) => {
   return (
@@ -10,11 +11,15 @@ const Product = ({ product }) => {
       {/* Instead of using a href we ussed Link to */}
       <Card.Body>
         <Link to={`/products/${product._id}`}>
-          <Card.Title as="div">
+          <Card.Title as="div" className="product-title">
             <strong>{product.name}</strong>
           </Card.Title>
         </Link>
       </Card.Body>
+
+      <Card.Text as="h3">
+        <Rating value={product.rating} text={`${product.numReviews} reviews`} />
+      </Card.Text>
 
       <Card.Text as="h3">$ {product.price}</Card.Text>
     </Card>
