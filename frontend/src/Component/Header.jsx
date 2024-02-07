@@ -8,6 +8,7 @@ const Header = () => {
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
+          {/* Instead of using a href we ussed LinkContainer to */}
           <LinkContainer to="/">
             <Navbar.Brand>
               <img src={logo} alt="ProShop" />
