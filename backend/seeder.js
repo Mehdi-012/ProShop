@@ -23,14 +23,16 @@ const importData = async () => {
         const adminUser = createdUsers[0]._id;
 
         const sampleProduct = products.map((product) => {
-            return { ...product, users: adminUser }
+            return { ...product, user: adminUser }
         })
-
+        console.log(sampleProduct)
         // Spread Operator to be checked once again 
 
         await Product.insertMany(sampleProduct)
 
         console.log('Data Imported'.green.inverse)
+
+        // process.exit will exit the Node process.
         process.exit()
 
     }
