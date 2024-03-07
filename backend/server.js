@@ -5,17 +5,25 @@ import connectDb from './config/db.js';
 import cors from 'cors'
 dotenv.config()
 import productRoutes from './routes/productRoute.js'
+import userRoutes from './routes/userRoutes.js'
 
 const port = process.env.PORT || 5000;
+
+
 
 connectDb() // to connectDB
 
 const app = express();
 
+// body parser middleware 
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 
 // cors is like middleware to allow data to be taken from the port 3000 from the front end              
 app.use(cors('http://localhost:3000'))
+
 
 
 app.get('/', (req, res) => {
@@ -23,6 +31,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
 
 
 
