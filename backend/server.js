@@ -1,6 +1,7 @@
 import express from 'express';
 // import products from './data/products.js';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 import connectDb from './config/db.js';
 import cors from 'cors'
 dotenv.config()
@@ -19,6 +20,10 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// cookie parser middleware
+
+app.use(cookieParser());
 
 
 // cors is like middleware to allow data to be taken from the port 3000 from the front end              
