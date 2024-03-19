@@ -43,4 +43,7 @@ const HomeScreen = () => {
   )
 }
 
+// Cli : command line interface
+// Os : operation system
+
 export default HomeScreen
